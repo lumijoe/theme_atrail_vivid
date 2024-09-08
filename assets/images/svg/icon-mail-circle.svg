@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20">
+  <g id="グループ_19" data-name="グループ 19" transform="translate(-377 -11)">
+    <g id="グループ_5" data-name="グループ 5" transform="translate(-464 -249.5)">
+      <g id="楕円形_1" data-name="楕円形 1" transform="translate(841 260.5)" fill="#fff" stroke="#000" stroke-width="0.7">
+        <circle cx="10" cy="10" r="10" stroke="none"/>
+        <circle cx="10" cy="10" r="9.65" fill="none"/>
+      </g>
+    </g>
+    <path id="icon_mail" d="M81.07-791.44a1.031,1.031,0,0,1-.756-.314A1.031,1.031,0,0,1,80-792.51v-6.42a1.031,1.031,0,0,1,.314-.756A1.03,1.03,0,0,1,81.07-800h8.56a1.03,1.03,0,0,1,.756.314,1.031,1.031,0,0,1,.314.756v6.42a1.031,1.031,0,0,1-.314.756,1.031,1.031,0,0,1-.756.314Zm4.28-3.745-4.28-2.675v5.35h8.56v-5.35Zm0-1.07,4.28-2.675H81.07Zm-4.28-1.6v0Z" transform="translate(302 817)"/>
+  </g>
+</svg>
