@@ -854,3 +854,4 @@ endif;
 # vivid_atrail
 # copyvivid_atrail
 # copyvivid_atrail
+# theme_atrail_vivid
