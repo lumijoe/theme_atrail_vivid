@@ -852,3 +852,4 @@ endif;
 ## header-shop.php before
 >>>>>>> b7ad82e (test)
 # vivid_atrail
+# copyvivid_atrail
