@@ -1,12 +1,16 @@
-<article class="article-card">
-    <a class="card-link" href="<?php the_permalink(); ?>">
-        <div class="image info-othersection-worksample"><?php the_post_thumbnail(); ?></div>
-        <div class="body">
-            <p class="title"><?php the_title(); ?></p>
-            <!-- <p class="excerpt"><?php echo get_the_excerpt(); ?></p> -->
-            <!-- <div class="buttonBox">
-                <button type="button" class="seeDetail">詳しくは→</button>
-            </div> -->
-        </div>
-    </a>
-</article>
+<div class="info-othersection-wrapper">
+    <h2 class="info-othersection-title">最新の制作事例はこちら</h2>
+    <div class="info-othersection-work">
+        <ul>
+            <?php
+            $term = get_specific_posts('daily_contribution', 'event', $term, 4);
+            if ($term->have_posts()):
+                while ($term->have_posts()): $term->the_post();
+                    get_template_part('content-tax-info-detail');
+                endwhile;
+                wp_reset_postdata();
+            endif;
+            ?>
+        </ul>
+    </div>
+</div>

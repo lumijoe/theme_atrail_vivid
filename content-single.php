@@ -9,26 +9,11 @@
       <?php the_post_thumbnail(); ?>
     </div>
   </div>
-
-  <!-- 制作事例はこちら -->
-  <div class="info-othersection-wrapper">
-    <h2 class="info-othersection-title">最新の制作事例はこちら</h2>
-    <div class="info-othersection-work">
-      <ul>
-        <?php
-        $term = get_specific_posts('daily_contribution', 'event', $term, 4);
-        if ($term->have_posts()):
-          while ($term->have_posts()): $term->the_post();
-            get_template_part('content-tax-info');
-          endwhile;
-          wp_reset_postdata();
-        endif;
-        ?>
-      </ul>
-    </div>
+  <div>
+    <?php get_template_part('content-tax-info'); ?>
   </div>
-  <hr>
 
+  <hr>
   <div class="more-news">
     <!-- prev -->
     <?php
@@ -37,19 +22,39 @@
     if ($next_post):
     ?>
       <div class="next">
-        <a class="another-link" href="<?php echo get_permalink($next_post->ID); ?>">NEXT →</a>
+        <a class="another-link" href="<?php echo get_permalink($next_post->ID); ?>">NEXT<span class="arrow-next"> ></span></a>
       </div>
-      <!-- backtolist -->
-      <div class="next">
-        <a class="another-link" href="<?php echo esc_url(home_url('/')); ?>">BACK TO LIST</a>
-      </div>
-      <!-- next -->
     <?php
     endif;
     if ($prev_post):
     ?>
       <div class="prev">
-        <a class="another-link" href="<?php echo get_permalink($prev_post->ID); ?>">← PREV</a>
+        <a class="another-link" href="<?php echo get_permalink($prev_post->ID); ?>"><span class="arrow-prev">
+            < </span>PREV</a>
       </div>
+
     <?php endif; ?>
+    <div class="backtolist">
+      <?php
+      // タイトルを取得
+      $main_title = get_main_title();
+
+      // タイトルに基づいてURLを変更
+      if ($main_title == 'お知らせ') {
+        $back_to_list_url = esc_url(home_url('archives/category/info'));
+      } elseif ($main_title == 'コンテナハウス') {
+        $back_to_list_url = esc_url(home_url('/contribution'));
+      } elseif ($main_title == 'コンテナオフィス') {
+        $back_to_list_url = esc_url(home_url('/contribution'));
+      } elseif ($main_title == 'コンテナガレージ') {
+        $back_to_list_url = esc_url(home_url('/contribution'));
+      } elseif ($main_title == 'コンテナショップ') {
+        $back_to_list_url = esc_url(home_url('/contribution'));
+      } else {
+        // それ以外の場合のデフォルトURL
+        $back_to_list_url = esc_url(home_url('/'));
+      }
+      ?>
+      <a class="another-link" href="<?php echo $back_to_list_url; ?>">BACK TO LIST</a>
+    </div>
   </div>

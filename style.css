@@ -427,6 +427,21 @@ info
 .info-othersection-work {
   width: 100%;
 }
+.arrow-next {
+  color: #3ba694;
+  padding-left: 8px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.arrow-prev {
+  color: #3ba694;
+  padding-right: 8px;
+  font-size: 14px;
+  font-weight: 900;
+}
+.time {
+  color: #949494;
+}
 
 /*****************
 company
@@ -2870,7 +2885,7 @@ form
 
 #info .news-item .time {
   font-size: 1.4rem;
-  color: #787878;
+  color: #949494;
 }
 
 #info .news-item .title {
@@ -2979,7 +2994,7 @@ form
 #pg-news .newsLists .news-body .release {
   width: 15%;
   font-size: 1.4rem;
-  color: #787878;
+  color: #949494;
 }
 
 #pg-news .newsLists .news-body .title {
@@ -3087,7 +3102,7 @@ form
 
 #pg-newsDetail .news .news-body {
   margin-top: 2.5%;
-  padding-bottom: 4%;
+  padding-bottom: 75px;
   border-bottom: 1px solid #d0d0d0;
 }
 
@@ -3102,7 +3117,7 @@ form
 }
 
 #pg-newsDetail .more-news {
-  margin-top: 1.5%;
+  margin-top: 50px;
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -3142,7 +3157,13 @@ form
 }
 
 #pg-newsDetail .more-news .prev .another-link:hover {
-  color: #127dd6;
+  color: #39a497;
+}
+#pg-newsDetail .more-news .backtolist .another-link:hover {
+  color: #39a497;
+}
+.news-link:hover {
+  color: #39a497;
 }
 
 #pg-newsDetail .more-news .prev .another-link:hover::before {
@@ -4792,16 +4813,24 @@ iframe {
 
 .more-news {
   position: relative;
+  align-items: center;
 }
 
 .next {
-  /* position: absolute;
-  right: 0; */
+  position: absolute;
+  right: 0;
 }
 
 .prev {
-  /* position: absolute;
-  left: 0; */
+  position: absolute;
+  left: 0;
+}
+.backtolist {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: "Vollkorn", serif;
+  font-size: 10px;
 }
 
 #keyvisual > img {

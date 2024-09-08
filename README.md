@@ -266,9 +266,9 @@ p タグ不要の追加
 の変更
 
 ・コーポレートロゴ
-・電話、telタグでかけれるようにする
-・icon telのものCTAボタン
-・icon 問い合わせフォームなどのメールらしきCTAボタン
+・電話、tel タグでかけれるようにする
+・icon tel のもの CTA ボタン
+・icon 問い合わせフォームなどのメールらしき CTA ボタン
 ・ハンバーガーメニュー
 
 =======
@@ -850,10 +850,36 @@ endif;
 </html>
 
 ## header-shop.php before
->>>>>>> b7ad82e (test)
+
+> > > > > > > b7ad82e (test)
+
 # vivid_atrail
+
 # copyvivid_atrail
+
 # copyvivid_atrail
+
 # theme_atrail_vivid
+
 # theme_atrail_vivid
+
 # theme_atrail_vivid
+
+ <!-- 制作事例はこちら -->
+  <div class="info-othersection-wrapper">
+    <h2 class="info-othersection-title">最新の制作事例はこちら</h2>
+    <div class="info-othersection-work">
+      <ul>
+        <?php
+        $term = get_specific_posts('daily_contribution', 'event', $term, 4);
+        if ($term->have_posts()):
+          while ($term->have_posts()): $term->the_post();
+            get_template_part('content-tax-info');
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
+      </ul>
+    </div>
+  </div>
+  <hr>
