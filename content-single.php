@@ -12,27 +12,22 @@
 
   <!-- 制作事例はこちら -->
   <div class="info-othersection-wrapper">
-    <h2 class="info-othersection-title">制作事例はこちら</h2>
+    <h2 class="info-othersection-title">最新の制作事例はこちら</h2>
     <div class="info-othersection-work">
       <ul>
-        <li>
-          <a href="./">コンテナハウス</a>
-        </li>
-        <li>
-          <a href="./">コンテナショップ</a>
-        </li>
-        <li>
-          <a href="./">コンテナオフィス</a>
-        </li>
-        <li>
-          <a href="./">コンテナガレージ</a>
-        </li>
+        <?php
+        $term = get_specific_posts('daily_contribution', 'event', $term, 4);
+        if ($term->have_posts()):
+          while ($term->have_posts()): $term->the_post();
+            get_template_part('content-tax-info');
+          endwhile;
+          wp_reset_postdata();
+        endif;
+        ?>
       </ul>
     </div>
   </div>
   <hr>
-
-
   <div class="more-news">
     <?php
     $next_post = get_next_post();

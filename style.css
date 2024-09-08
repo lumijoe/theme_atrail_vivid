@@ -419,6 +419,14 @@ info
 .info-othersection-work li a {
   color: #fff;
 }
+.info-othersection-worksample img {
+  aspect-ratio: 220 /150 !important;
+  height: auto !important;
+  max-width: 250px;
+}
+.info-othersection-work {
+  width: 100%;
+}
 
 /*****************
 company
