@@ -395,6 +395,31 @@ news
   width: 62% !important;
   text-align: justify;
 }
+/****************
+info
+****************/
+.info-othersection-wrapper {
+  padding: 40px 0 70px;
+}
+.info-othersection-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+.info-othersection-work ul {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.info-othersection-work li {
+  background-color: #232323;
+  padding: 10px 20px;
+  border-radius: 0px;
+}
+.info-othersection-work li a {
+  color: #fff;
+}
+
 /*****************
 company
 *****************/

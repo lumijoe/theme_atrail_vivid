@@ -9,6 +9,30 @@
       <?php the_post_thumbnail(); ?>
     </div>
   </div>
+
+  <!-- 制作事例はこちら -->
+  <div class="info-othersection-wrapper">
+    <h2 class="info-othersection-title">制作事例はこちら</h2>
+    <div class="info-othersection-work">
+      <ul>
+        <li>
+          <a href="./">コンテナハウス</a>
+        </li>
+        <li>
+          <a href="./">コンテナショップ</a>
+        </li>
+        <li>
+          <a href="./">コンテナオフィス</a>
+        </li>
+        <li>
+          <a href="./">コンテナガレージ</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <hr>
+
+
   <div class="more-news">
     <?php
     $next_post = get_next_post();
@@ -22,6 +46,9 @@
     endif;
     if ($prev_post):
     ?>
+      <div class="next">
+        <a class="another-link" href="<?php echo esc_url(home_url('/')); ?>">BACK TO LIST</a>
+      </div>
       <div class="prev">
         <a class="another-link" href="<?php echo get_permalink($prev_post->ID); ?>">← PREV</a>
       </div>
