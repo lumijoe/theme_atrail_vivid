@@ -855,3 +855,4 @@ endif;
 # copyvivid_atrail
 # copyvivid_atrail
 # theme_atrail_vivid
+# theme_atrail_vivid
