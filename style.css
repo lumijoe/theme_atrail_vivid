@@ -596,8 +596,17 @@ form
   justify-content: center;
 }
 .nav-links span {
-  background: #025d31 !important;
-  border: solid 1px #025d31 !important;
+  background: linear-gradient(to right, #3ca88f, #007bf7) !important;
+  border: none !important;
+}
+.nav-links span:hover {
+  background: linear-gradient(to right, #3ca88f, #007bf7) !important;
+  border: none !important;
+}
+.nav-links a:hover {
+  background: linear-gradient(to right, #3ca88f, #007bf7) !important;
+  color: #fff !important;
+  border: none !important;
 }
 @-webkit-keyframes menu-barTop {
   0% {
