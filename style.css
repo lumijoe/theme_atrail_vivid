@@ -4795,13 +4795,13 @@ iframe {
 }
 
 .next {
-  position: absolute;
-  right: 0;
+  /* position: absolute;
+  right: 0; */
 }
 
 .prev {
-  position: absolute;
-  left: 0;
+  /* position: absolute;
+  left: 0; */
 }
 
 #keyvisual > img {
