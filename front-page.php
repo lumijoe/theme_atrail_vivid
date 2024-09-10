@@ -18,7 +18,7 @@
 <!-- ------------------------------
 //////////// 事業案内 shop
 ------------------------------- -->
-<section class="section-contents" id="shop">
+<section class="section-contents" id="service">
   <div class="wrapper">
 
 
@@ -27,13 +27,13 @@
     ----------------------------->
     <?php
     // 固定ページを表示させる（引数：ページのスラッグ）
-    $shop_obj = get_page_by_path('shop');
+    $service_obj = get_page_by_path('service');
     // 投稿記事
-    $post = $shop_obj;
+    $post = $service_obj;
     // 固定ページの投稿記事を使用する宣言（引数：関数定義）
     setup_postdata($post);
     // タイトルを取得
-    $shop_title = get_the_title();
+    $service_title = get_the_title();
     ?>
     <!----------------------------
     // 取得したphpなどのhtml予約
@@ -56,9 +56,9 @@
       ----------------------------->
       <?php
       // 記事が続く限り、でも４つまで
-      $shop_pages = get_child_pages(4, $shop_obj->ID);
-      if ($shop_pages->have_posts()) :
-        while ($shop_pages->have_posts()) : $shop_pages->the_post();
+      $service_pages = get_child_pages(4, $service_obj->ID);
+      if ($service_pages->have_posts()) :
+        while ($service_pages->have_posts()) : $service_pages->the_post();
       ?>
           <li class="shops-item">
             <a class="shop-link" href="<?php the_permalink(); ?>">
@@ -82,8 +82,8 @@
       ?>
     </ul> <!--ulここまで-->
     <div class="section-buttons">
-      <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(home_url('shop')); ?>';">
-        <?php echo $shop_title; ?>一覧を見る
+      <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(home_url('service')); ?>';">
+        <?php echo $service_title; ?>一覧を見る
       </button>
     </div>
   </div>
