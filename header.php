@@ -16,16 +16,6 @@
 <body <?php body_class(); ?>>
   <div class="container">
     <header id="header">
-<<<<<<< HEAD
-      <div class="header-inner">
-        <div class="flexrowYcenter">
-          <div class="logo">
-            <h1>
-              <a class="logo-header" href="<?php echo esc_url(home_url()); ?>">
-                <img src="https://atrail.co.jp/wp-content/uploads/images/logo-green@2x.png" class="fixed-logo" alt="ATRAIL" style="max-width:20%;">
-              </a>
-            </h1>
-=======
       <div class="header-inner" style="display:flex; flex-direction:column;">
 
         <!-- inner-white -->
@@ -39,7 +29,6 @@
                 </a>
               </h1>
             </div>
->>>>>>> b7ad82e (test)
           </div>
         </div>
 
@@ -100,32 +89,6 @@
               <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/icon-mail.png" alt="" srcset="" style="width:80px; height:auto;">
             </button> -->
           </div>
-<<<<<<< HEAD
-          <button class="mail">
-            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/common/icon-mail.png" alt="" srcset="" style="width:80px; height:auto;">
-          </button>
-        </div>
-      </div>
-    </header>
-    <!-- front-page.phpの場合 -->
-    <?php if (is_front_page()): ?>
-      <section class="section-contents" id="keyvisual">
-        <img src="https://atrail.co.jp/wp-content/uploads/images/bg-section-keyvisual-02.jpg" alt="">
-        <div class="wrapper">
-          <!-- <h1 class="site-title">your style</h1> -->
-          <h1 class="site-caption">コンテナで、かなえる。<br>自由を、つくる。</h1>
-          <img src="https://atrail.co.jp/wp-content/uploads/images/logo-white@2x.png" alt="" srcset="" class="logo-img">
-        </div>
-      </section>
-      <!-- front-page.php以外のphpページの場合 -->
-    <?php else: ?>
-      <div class="wrap">
-        <div id="primary" class="content-area">
-          <main>
-            <div class="page-contents">
-              <div class="page-head">
-                <?php echo get_main_image(); ?>
-=======
         </div>
       </div>
   </div>
@@ -147,7 +110,6 @@
           <div class="page-contents">
             <div class="page-head">
               <?php echo get_main_image(); ?>
->>>>>>> b7ad82e (test)
 
               <div class="wrapper">
                 <span class="page-title-en"><?php echo get_main_en_title(); ?></span>
