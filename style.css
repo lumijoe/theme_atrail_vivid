@@ -521,6 +521,12 @@ form
   width: 100%;
   height: auto;
 }
+.l-contact-inner-text {
+  padding-top: 0px;
+  padding-bottom: 60px;
+  font-size: 20px;
+  font-family: bold;
+}
 .l-contact-inner {
   padding-top: 60px;
   padding-bottom: 23px;
@@ -553,7 +559,7 @@ form
 .l-contact .l-form .form-example .form_label {
   flex: 0 0 138px;
   text-align: left;
-  margin-right: 60px;
+  margin-right: 20px;
   font-weight: 300;
 }
 .l-contact .l-form .form-example .form_input {
