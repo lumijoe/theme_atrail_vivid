@@ -18,7 +18,7 @@
 <!-- ------------------------------
 //////////// 事業案内 shop
 ------------------------------- -->
-<section class="section-contents" id="service">
+<section class="section-contents" id="shop">
   <div class="wrapper">
 
 
@@ -188,7 +188,7 @@
 <!-- cta -->
 <section class="l-cta">
   <button class="p-cta-btn">
-  <img src="https://atrail.co.jp/wp-content/uploads/images/svg/icon-mail-circle.svg" alt="" srcset="" class="img-mail">
+    <img src="https://atrail.co.jp/wp-content/uploads/images/svg/icon-mail-circle.svg" alt="" srcset="" class="img-mail">
     <a href="https://atrail.co.jp/contact/">お問い合わせ</a>
   </button>
 </section>
