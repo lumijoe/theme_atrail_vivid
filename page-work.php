@@ -177,13 +177,13 @@ get_header('contribution');
                     $the_query = new WP_Query($args); //記事を取得
                     if ($the_query->have_posts()) {   //記事が取得できたか？
                     ?>
-                        <div class="works-box">
+                        <div class="works-box" style="max-width: 300px;">
                             <ul class="works-lists">
                                 <?php
                                 while ($the_query->have_posts()) {
                                     $the_query->the_post(); //ループのカウントアップ
                                 ?>
-                                    <li class="works-list">
+                                    <li class="works-list" style="list-style-type: none; max-width: 300px;">
                                         <!-- パーマリンク -->
                                         <a class="works-link" href="<?php the_permalink(); ?>">
                                             <!-- 画像：カスタムフィールドwork_imgから画像のURLを取得 -->
@@ -201,7 +201,7 @@ get_header('contribution');
                                                 <?php endif; ?>
                                             </div>
                                             <!-- タイトル：施工名 -->
-                                            <h3 class="works-link-text" style="font-size: 16px; display: flex;">
+                                            <h3 class="works-link-text" style="font-size: 16px; display: flex; padding: 5px 0px;">
                                                 <?php
                                                 $work_name = get_field('work_name'); // カスタムフィールド 'work_name' 
                                                 if ($work_name) : // あるか確認
