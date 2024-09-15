@@ -1092,3 +1092,18 @@ get_header('contribution');
         </div>
     </div>
     <?php get_footer(); ?>
+
+##　 ACF
+
+ <!-- タイトル：施工日時 -->
+
+                                                <h3 class="works-link-title">施工日時 |
+                                                    <?php
+                                                    $work_day = get_field('work_day'); // カスタムフィールド 'work_day'
+                                                    if ($work_day) : // あるか確認
+                                                    ?>
+                                                        <?php echo esc_html($work_day); ?><!-- テキスト表示 -->
+                                                    <?php else : ?>
+                                                        - <!-- 文字列がない場合はデフォルトを表示 -->
+                                                    <?php endif; ?>
+                                                </h3>

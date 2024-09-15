@@ -140,7 +140,7 @@
 <section class="section-contents" id="contribution">
   <div class="wrapper">
     <?php
-    $contribution_obj = get_page_by_path('contribution');
+    $contribution_obj = get_page_by_path('work');
     $post = $contribution_obj;
     setup_postdata($post);
     $contribution_title = get_the_title();
@@ -151,7 +151,7 @@
     <?php wp_reset_postdata(); ?>
     <div class="articles">
       <?php
-      $contribution_pages = get_specific_posts('daily_contribution', 'event', '', 3);
+      $contribution_pages = get_specific_posts('work', 'worktype', '', 3);
       if ($contribution_pages->have_posts()) :
         while ($contribution_pages->have_posts()) : $contribution_pages->the_post();
       ?>
@@ -159,7 +159,6 @@
             <a class="card-link" href="<?php the_permalink(); ?>">
               <div class="card-inner">
                 <div class="card-image"><?php the_post_thumbnail(''); ?></div>
-                <!-- <div class="card-image"><?php the_post_thumbnail('front-contribution'); ?></div> -->
                 <div class="card-body">
                   <p class="title"><?php the_title(); ?></p>
                   <p class="excerpt"><?php echo get_the_excerpt(); ?></p>

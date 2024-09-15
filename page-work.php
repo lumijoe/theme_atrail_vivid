@@ -202,44 +202,41 @@ get_header('contribution');
                                             </div>
 
                                             <div class="works-link-body">
-                                                <!-- タイトル：施工日時 -->
-                                                <h3 class="works-link-title">施工日時 |
-                                                    <?php
-                                                    $work_day = get_field('work_day'); // カスタムフィールド 'work_day' 
-                                                    if ($work_day) : // あるか確認
-                                                    ?>
-                                                        <?php echo esc_html($work_day); ?><!-- テキスト表示 -->
-                                                    <?php else : ?>
-                                                        - <!-- 文字列がない場合はデフォルトを表示 -->
-                                                    <?php endif; ?>
-                                                </h3>
-
                                                 <!-- タクソノミーを取得する -->
+                                                <!-- タクソノミーが選択されていたら実行する -->
+                                                <!-- 複数のタクソノミーを配列で定義 -->
                                                 <?php
-                                                $terms = get_the_terms($post->ID, 'worktype');
-                                                if ($terms) { //タクソノミーが選択されていたら実行する
+                                                $taxonomies = ['worktype', 'styletype', 'sizetype'];
+                                                // 各タクソノミーごとのタームをループ処理
+                                                foreach ($taxonomies as $taxonomy) {
+                                                    // タクソノミーのタームを取得
+                                                    $terms = get_the_terms($post->ID, $taxonomy);
+                                                    if ($terms) {
                                                 ?>
-                                                    <ul class="works-link-category">
-                                                        <?php
-                                                        foreach ($terms as $term) {
-                                                            // 取得できたタームの数だけループさせる
-                                                        ?>
-                                                            <li>
-                                                                <?php echo $term->name //タームの名前を出力 
-                                                                ?>
-                                                            </li>
-                                                        <?php
-                                                        }
-                                                        ?>
-                                                    </ul>
+                                                        <ul class="works-link-category" style="display: flex; flex-direction: row; ">
+                                                            <!-- 取得できたタームの数だけループさせる -->
+                                                            <?php
+                                                            foreach ($terms as $term) {
+                                                            ?>
+                                                                <!-- タームの名前を出力  -->
+                                                                <li style="padding: 5px 10px; border-radius: 10px; border: 1px solid #232323; width: max-content;">＃<?php echo esc_html($term->name); ?>
+                                                                </li>
+                                                            <?php
+                                                            }
+                                                            ?>
+                                                        </ul>
                                                 <?php
+                                                    }
                                                 }
                                                 ?>
+                                                </p>
+
+
 
 
 
                                                 <!-- タイトル：施工名 -->
-                                                <p class="works-link-text">施工名 |
+                                                <h3 class="works-link-text">
                                                     <?php
                                                     $work_name = get_field('work_name'); // カスタムフィールド 'work_name' 
                                                     if ($work_name) : // あるか確認
@@ -248,7 +245,7 @@ get_header('contribution');
                                                     <?php else : ?>
                                                         <!-- 文字列がない場合はデフォルトを表示 -->
                                                     <?php endif; ?>
-                                                </p>
+                                                </h3>
                                                 <!-- カテゴリ -->
                                                 <p class="works-link-text">
                                                     <?php
