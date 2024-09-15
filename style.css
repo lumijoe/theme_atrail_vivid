@@ -517,10 +517,10 @@ privacy-policy
 form
 *********************/
 .pc-none {
-  display:none;
+  display: none;
 }
 .section-contents-form {
-  padding-top: 40px!important;
+  padding-top: 40px !important;
 }
 .l-contact {
   width: 100%;
@@ -828,33 +828,33 @@ form
     padding-bottom: 50px;
   }
   .form-example {
-    flex-direction: column!important;
-    align-items: flex-start!important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
   }
   .form_label {
-    flex: 0!important;
-    margin-right: 0!important;
+    flex: 0 !important;
+    margin-right: 0 !important;
   }
   .form_input {
     padding-top: 10px;
     padding-bottom: 10px;
-    width: 100%!important;
+    width: 100% !important;
     margin-top: -20px;
     margin-bottom: 10px;
   }
   .mwform-tel-field {
-    display: flex!important;;
-    flex-direction: row!important;;
-    justify-content:  flex-start!important;;
-    width: 100%!important;;
-    align-items:baseline!important;
-    margin-top: -13px!important;
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    width: 100% !important;
+    align-items: baseline !important;
+    margin-top: -13px !important;
   }
   .form_input--freetxt {
-    margin-top: -20px!important;
+    margin-top: -20px !important;
   }
   .pc-none {
-    display:block;
+    display: block;
   }
 }
 @media screen and (max-width: 1200px) {
@@ -1863,7 +1863,6 @@ form
   }
 
   .article-body {
-    
   }
 
   .article-body .article-inner:first-child {
@@ -2840,6 +2839,7 @@ form
   font-size: 3rem;
   padding-bottom: 50px;
   letter-spacing: 0.2em;
+  font-weight: 500 !important;
 }
 #keyvisual .wrapper .logo-img {
   max-width: 59%;
