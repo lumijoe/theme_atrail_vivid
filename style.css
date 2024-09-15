@@ -575,12 +575,23 @@ form
   height: 38px;
   border: 1px solid #9e9e9e;
   border-radius: 4px;
+  background-color: #f1f1f1;
 }
+.re::after {
+  content: "必須";
+  margin-right: 20px;
+  background: linear-gradient(to right, #3ca88f, #007bf7);
+  padding: 5px 13px;
+  color: #fff;
+  border-radius: 4px;
+}
+
 .l-contact .l-form .form-example .form_input--freetxt {
   height: 138px;
   width: 100%;
   border: 1px solid #9e9e9e;
   border-radius: 4px;
+  background-color: #f1f1f1;
 }
 .py25 {
   padding-top: 25px;
