@@ -12,7 +12,7 @@ get_header('contribution');
                 <span class="title-en"></span>
                 <h2 class="title" style="font-size:30px!important;">HOUSE / SHOP / OFFICE / GARAGE</h2>
             </div>
-            <section class="section-contents" id="contribution">
+            <section class="section-contents" id="work">
                 <div class="wrapper">
                     <?php
                     $args = array(
