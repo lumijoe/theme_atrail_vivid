@@ -10,7 +10,7 @@
             <?php endif; ?>
         </div>
 
-        <div class="body">
+        <div class="">
             <!-- タイトル -->
             <p class="title" style="font-weight: bold; padding-top: 10px;"><?php the_title(); ?></p>
 
