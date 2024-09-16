@@ -1283,3 +1283,5 @@ get_header('contribution');
 
 </div>
 <?php get_footer(); ?>
+
+## パンクズリスト設定など管理画面変更あり
