@@ -190,6 +190,7 @@ add_filter('excerpt_mblength', 'cms_excerpt_length');
 // 抜粋機能を固定ページに使えるよう設定
 add_post_type_support('page', 'excerpt');
 
+// 抜粋文字以降を...で表示する
 function get_flexible_excerpt($number)
 {
 	$value = get_the_excerpt();
@@ -224,12 +225,30 @@ function get_main_en_title()
 {
 	if (is_category()) :
 		$term_obj = get_queried_object();
+
+		// カテゴリースラッグに基づいて 'news' や 'work' を返す
+		if ($term_obj->slug === 'info') {
+			return 'news';
+		} elseif ($term_obj->slug === 'work') {
+			return 'work';
+		}
+
 		$english_title = get_field('english_title', $term_obj->taxonomy . '_' . $term_obj->term_id);
 		return $english_title;
 	elseif (is_singular('post')) :
 		$term_obj = get_the_category();
 		$english_title = get_field('english_title', $term_obj[0]->taxonomy . '_' . $term_obj[0]->term_id);
 		return $english_title;
+	elseif (is_page('service')) :
+		return 'service';
+	elseif (is_page('work')) :
+		return 'work';
+	elseif (is_page('contact')) :
+		return 'form';
+	elseif (is_page('complete')) :
+		return 'form';
+	elseif (is_page('company')) :
+		return 'company';
 	elseif (is_page() || is_singular('daily_contribution')) :
 		return get_field('english_title');
 	elseif (is_search()) :
