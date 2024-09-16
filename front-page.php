@@ -169,12 +169,34 @@
                   $work_img = get_field('work_img');
                   if ($work_img) :
                   ?>
-                    <img src="<?php echo esc_url($work_img); ?>" alt="">
+                    <img src="<?php echo esc_url($work_img); ?>" alt="" style="height: 445px;">
                   <?php endif; ?>
                 </div>
                 <div class="card-body">
-                  <p class="title"><?php the_title(); ?></p>
-                  <p class="excerpt"><?php echo get_the_excerpt(); ?></p>
+                  <p class="title" style="font-weight: bold; padding-bottom: 10px;"><?php the_title(); ?></p>
+                  <div style="display: flex; flex-wrap: wrap; gap: 5px; max-width: 300px;">
+                    <?php
+                    $taxonomies = ['worktype', 'styletype', 'sizetype'];
+                    foreach ($taxonomies as $taxonomy) {
+                      $terms = get_the_terms($post->ID, $taxonomy);
+                      if ($terms) :
+                    ?>
+                        <ul class="works-link-category" style="display: flex;  flex-direction: row; gap:5px; flex-wrap: wrap;">
+                          <?php
+                          foreach ($terms as $term) :
+                          ?>
+                            <li style="padding: 2px 8px; border-radius: 10px; border: 1px solid #232323; width: max-content; font-size:12px;">
+                              ＃<?php echo esc_html($term->name); ?>
+                            </li>
+                          <?php
+                          endforeach;
+                          ?>
+                        </ul>
+                    <?php
+                      endif;
+                    }
+                    ?>
+                  </div><!-- タクソノミー終了 -->
                   <div class="buttonBox">
                     <button type="button" class="seeDetail">詳しくは→</button>
                   </div>
