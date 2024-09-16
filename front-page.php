@@ -151,14 +151,27 @@
     <?php wp_reset_postdata(); ?>
     <div class="articles">
       <?php
-      $contribution_pages = get_specific_posts('work', 'worktype', '', 3);
-      if ($contribution_pages->have_posts()) :
-        while ($contribution_pages->have_posts()) : $contribution_pages->the_post();
+      $args = array(
+        'post_type' => 'works',
+        'post_status' => 'publish',
+        'posts_per_page' => 3,
+      );
+
+      $the_query = new WP_Query($args);
+      if ($the_query->have_posts()) :
+        while ($the_query->have_posts()) : $the_query->the_post();
       ?>
           <article class="article-card">
             <a class="card-link" href="<?php the_permalink(); ?>">
               <div class="card-inner">
-                <div class="card-image"><?php the_post_thumbnail(''); ?></div>
+                <div class="card-image">
+                  <?php
+                  $work_img = get_field('work_img');
+                  if ($work_img) :
+                  ?>
+                    <img src="<?php echo esc_url($work_img); ?>" alt="">
+                  <?php endif; ?>
+                </div>
                 <div class="card-body">
                   <p class="title"><?php the_title(); ?></p>
                   <p class="excerpt"><?php echo get_the_excerpt(); ?></p>
