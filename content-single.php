@@ -5,8 +5,22 @@
     <div class="news-body">
       <div style="padding-bottom:30px;">
         <?php the_content(); ?>
+        <p class="works-link-text" style="font-size: 16px; display: flex; padding: 5px 0px;">
+          <?php
+          $work_strong = get_field('work_strong');
+          if ($work_strong) :
+            echo esc_html($work_strong);
+          endif;
+          ?>
+        </p>
       </div>
       <?php the_post_thumbnail(); ?>
+      <?php
+      $work_img = get_field('work_img');
+      if ($work_img) :
+      ?>
+        <img src="<?php echo esc_url($work_img); ?>" alt="" style="aspect-ratio: 2560 / 1690;">
+      <?php endif; ?>
     </div>
   </div>
   <div>
@@ -39,22 +53,20 @@
       // タイトルを取得
       $main_title = get_main_title();
 
+      // デフォルトURLを設定
+      $back_to_list_url = esc_url(home_url('/'));
+
       // タイトルに基づいてURLを変更
       if ($main_title == 'お知らせ') {
         $back_to_list_url = esc_url(home_url('archives/category/info'));
-      } elseif ($main_title == 'コンテナハウス') {
-        $back_to_list_url = esc_url(home_url('/contribution'));
-      } elseif ($main_title == 'コンテナオフィス') {
-        $back_to_list_url = esc_url(home_url('/contribution'));
-      } elseif ($main_title == 'コンテナガレージ') {
-        $back_to_list_url = esc_url(home_url('/contribution'));
-      } elseif ($main_title == 'コンテナショップ') {
-        $back_to_list_url = esc_url(home_url('/contribution'));
-      } else {
-        // それ以外の場合のデフォルトURL
-        $back_to_list_url = esc_url(home_url('/'));
+      } elseif ($main_title == 'コンテナハウス' || $main_title == 'コンテナオフィス' || $main_title == 'コンテナガレージ' || $main_title == 'コンテナショップ') {
+        $back_to_list_url = esc_url(home_url('/work'));
+      } elseif (is_singular('works')) {
+        // 施工事例のカスタム投稿タイプの場合
+        $back_to_list_url = esc_url(home_url('/work'));
       }
       ?>
+
       <a class="another-link" href="<?php echo $back_to_list_url; ?>">BACK TO LIST</a>
     </div>
   </div>

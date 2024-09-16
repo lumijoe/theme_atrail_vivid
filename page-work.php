@@ -13,7 +13,8 @@ get_header('contribution');
             </div>
             <!-- 事例セクション -->
             <section class="section-contents" id="work">
-                <ul class="works-box" style="max-width: 300px;">
+                <ul class="works-box" style="display:flex; justify-content: center; align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 20px;">
+                    <!-- <ul class="works-box" style="max-width: 300px;"> -->
                     <?php
                     $args = array(
                         'post_type' => 'works',
@@ -52,7 +53,7 @@ get_header('contribution');
                                                 $terms = get_the_terms($post->ID, $taxonomy);
                                                 if ($terms) :
                                             ?>
-                                                    <ul class="works-link-category" style="display: flex; flex-direction: row; gap:5px;">
+                                                    <ul class="works-link-category" style="display: flex;  flex-direction: row; gap:5px; flex-wrap: wrap;">
                                                         <?php
                                                         foreach ($terms as $term) :
                                                         ?>
