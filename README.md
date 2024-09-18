@@ -1288,3 +1288,56 @@ get_header('contribution');
 
 
 ## WPCodexのチェック
+
+## お知らせ投稿（デフォルト投稿のカテゴリのpressだけを表示させる）
+<section class="section-contents" id="info">
+  <div class="wrapper maxw600">
+    <?php $term_obj = get_term_by('slug', 'info', 'category'); ?>
+    <span class="section-title-en"><?php the_field('english_title'); ?></span>
+    <h2 class="section-title"><?php echo $term_obj->name; ?></h2>
+    <p class="section-lead"><?php echo $term_obj->description; ?></p>
+
+    <div class="page-inner full-width">
+      <div class="page-main" id="pg-news">
+        <div class="main-container">
+          <div class="main-wrapper">
+            <div class="newsLists">
+              <?php
+              $news_posts = get_specific_posts('post', 'category', 'press', 4);
+              if ($news_posts->have_posts()):
+                while ($news_posts->have_posts()): $news_posts->the_post();
+              ?>
+                  <div>
+                    <a class="news-link" href="<?php the_permalink(); ?>">
+                      <div class=news-body>
+                        <time class="release"><?php the_time('Y.m.d'); ?></time>
+                        <p class="title"><?php the_title(); ?></p>
+                      </div>
+                    </a>
+                  </div>
+              <?php
+                endwhile;
+                wp_reset_postdata();
+              endif;
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pager">
+      <ul class="pagerList">
+        <?php
+        page_navi();
+        ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-buttons">
+    <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(get_term_link($term_obj)); ?>';">
+      <?php echo $term_obj->name; ?>一覧を見る
+    </button>
+  </div>
+  </div>
+</section>

@@ -243,7 +243,7 @@
           <div class="main-wrapper">
             <div class="newsLists">
               <?php
-              $news_posts = get_specific_posts('post', 'category', 'info', 4);
+              $news_posts = get_specific_posts('post', 'category', 'press', 4);
               if ($news_posts->have_posts()):
                 while ($news_posts->have_posts()): $news_posts->the_post();
               ?>
