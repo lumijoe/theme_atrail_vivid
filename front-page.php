@@ -243,14 +243,32 @@
           <div class="main-wrapper">
             <div class="newsLists">
               <?php
-              $news_posts = get_specific_posts('post', 'category', 'press', 4);
+              // 投稿を4件取得するクエリ
+              $args = array(
+                'post_type'      => 'post', // 投稿タイプ
+                'posts_per_page' => 4,      // 取得する投稿の数
+                'orderby'        => 'date',      // 日付順で並び替え
+                'order'          => 'DESC', 
+              );
+              $news_posts = new WP_Query($args);
+
               if ($news_posts->have_posts()):
                 while ($news_posts->have_posts()): $news_posts->the_post();
               ?>
                   <div>
                     <a class="news-link" href="<?php the_permalink(); ?>">
-                      <div class=news-body>
+                      <div class="news-body">
                         <time class="release"><?php the_time('Y.m.d'); ?></time>
+                        <p class="news-category" style="font-size:clamp(10px, 2vw, 12px); width:100%; background-size: #c5c5c5;">
+                        <?php 
+                          $categories = get_the_category();
+                          if ( ! empty( $categories ) ) {
+                            foreach ( $categories as $category ) {
+                              echo esc_html( $category->name ) . ' '; // 複数カテゴリをスペース区切りで表示
+                            }
+                          }
+                        ?>
+                        </p>
                         <p class="title"><?php the_title(); ?></p>
                       </div>
                     </a>
@@ -265,9 +283,11 @@
         </div>
       </div>
     </div>
+    
     <div class="pager">
       <ul class="pagerList">
         <?php
+        // ページナビゲーションの表示
         page_navi();
         ?>
       </ul>
@@ -278,7 +298,6 @@
     <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(get_term_link($term_obj)); ?>';">
       <?php echo $term_obj->name; ?>一覧を見る
     </button>
-  </div>
   </div>
 </section>
 
