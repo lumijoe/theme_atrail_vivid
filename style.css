@@ -382,18 +382,27 @@ news
 ****************/
 .news-body {
   height: auto;
+  width: 85px !important;
 }
 .maxw600 {
   max-width: 600px;
   margin: 0 auto;
 }
 .news-body .release {
-  width: 38% !important;
+  /* width: 38% !important; */
   text-align: justify;
+  width: 150px !important;
 }
 .news-body .title {
-  width: 62% !important;
+  /* width: 62% !important; */
   text-align: justify;
+  width: auto;
+  display: inline-block !important;
+}
+.title {
+  text-align: justify;
+  width: auto;
+  display: inline-block !important;
 }
 /****************
 info
@@ -3033,6 +3042,7 @@ form
 
 #pg-news .newsLists .news-link {
   display: block;
+  border-bottom: 1px solid #d0d0d0;
 }
 
 #pg-news .newsLists .news-link:hover .title {
@@ -3041,21 +3051,13 @@ form
 
 #pg-news .newsLists .news-body {
   padding: 16px 0;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: grid;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  border-bottom: 1px solid #d0d0d0;
-  grid-template-columns: 0.3fr 0.3fr 1fr;
+  width: 85px;
+  display: inline-block;
 }
 .news-category {
-  font-size:clamp(10px, 2vw,12px);
-  width: 100%;
+  font-size: clamp(10px, 2vw, 12px);
+  width: 149px;
+  display: inline-block;
 }
 .news-category.info {
   background-color: #fff;
@@ -3076,17 +3078,21 @@ form
   background-color: #fff;
   border: 1px solid #232323; /* eventカテゴリ */
 }
+.news-list {
+  text-align: start !important;
+}
 
 #pg-news .newsLists .news-body .release {
-  width: 15%;
+  /* width: 15%; */
   font-size: 1.4rem;
   color: #949494;
 }
 
 #pg-news .newsLists .news-body .title {
-  width: 100%;
+  /* width: 100%; */
   font-size: 1.4rem;
   margin-left: 10px;
+  display: inline-block !important;
 }
 
 #pg-news .newsLists .news-body .capton {

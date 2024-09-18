@@ -241,55 +241,54 @@
       <div class="page-main" id="pg-news">
         <div class="main-container">
           <div class="main-wrapper">
-            <div class="newsLists">
+            <ul class="newsLists">
               <?php
               // 投稿を4件取得するクエリ
               $args = array(
                 'post_type'      => 'post', // 投稿タイプ
                 'posts_per_page' => 4,      // 取得する投稿の数
                 'orderby'        => 'date',      // 日付順で並び替え
-                'order'          => 'DESC', 
+                'order'          => 'DESC',
               );
               $news_posts = new WP_Query($args);
 
               if ($news_posts->have_posts()):
                 while ($news_posts->have_posts()): $news_posts->the_post();
               ?>
-                  <div>
+                  <li class="news-list">
                     <a class="news-link" href="<?php the_permalink(); ?>">
-                      <div class="news-body">
-                        <time class="release"><?php the_time('Y.m.d'); ?></time>
-                        <p class="news-category <?php 
-                          $categories = get_the_category();
-                          if ( ! empty( $categories ) ) {
-                            foreach ( $categories as $category ) {
-                              echo esc_html( $category->slug ) . ' '; // 全てのカテゴリスラッグをクラスに追加
-                            }
+                      <span class="news-body release"><?php the_time('Y.m.d'); ?></span>
+                      <span class="news-category <?php
+                                                  $categories = get_the_category();
+                                                  if (! empty($categories)) {
+                                                    foreach ($categories as $category) {
+                                                      echo esc_html($category->slug) . ' '; // 全てのカテゴリスラッグをクラスに追加
+                                                    }
+                                                  }
+                                                  ?>">
+                        <?php
+                        if (! empty($categories)) {
+                          foreach ($categories as $category) {
+                            echo esc_html($category->name) . ' '; // カテゴリ名をスペース区切りで表示
                           }
-                        ?>">
-                          <?php 
-                            if ( ! empty( $categories ) ) {
-                              foreach ( $categories as $category ) {
-                                echo esc_html( $category->name ) . ' '; // カテゴリ名をスペース区切りで表示
-                              }
-                            }
-                          ?>
-                        </p>
-                        <p class="title"><?php the_title(); ?></p>
-                      </div>
+                        }
+                        ?>
+                      </span>
+                      <p class="title"><?php the_title(); ?></p>
+                      </span>
                     </a>
-                  </div>
+                  </li>
               <?php
                 endwhile;
                 wp_reset_postdata();
               endif;
               ?>
-            </div>
+            </ul>
           </div>
         </div>
       </div>
     </div>
-    
+
     <div class="pager">
       <ul class="pagerList">
         <?php
