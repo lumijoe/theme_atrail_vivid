@@ -1285,3 +1285,6 @@ get_header('contribution');
 <?php get_footer(); ?>
 
 ## パンクズリスト設定など管理画面変更あり
+
+
+## WPCodexのチェック
