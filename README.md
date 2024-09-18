@@ -1341,3 +1341,102 @@ get_header('contribution');
   </div>
   </div>
 </section>
+
+##　カテゴリごとのカラー変更CSSとfront-page.phpの合わせ技
+.news-category {
+  font-size:clamp(10px, 2vw,12px);
+  width: 100%;
+  background-color: #c5c5c5;
+}と
+<section class="section-contents" id="info">
+  <div class="wrapper maxw600">
+    <?php $term_obj = get_term_by('slug', 'info', 'category'); ?>
+    <span class="section-title-en"><?php the_field('english_title'); ?></span>
+    <h2 class="section-title"><?php echo $term_obj->name; ?></h2>
+    <p class="section-lead"><?php echo $term_obj->description; ?></p>
+
+    <div class="page-inner full-width">
+      <div class="page-main" id="pg-news">
+        <div class="main-container">
+          <div class="main-wrapper">
+            <div class="newsLists">
+              <?php
+              // 投稿を4件取得するクエリ
+              $args = array(
+                'post_type'      => 'post', // 投稿タイプ
+                'posts_per_page' => 4,      // 取得する投稿の数
+                'orderby'        => 'date',      // 日付順で並び替え
+                'order'          => 'DESC', 
+              );
+              $news_posts = new WP_Query($args);
+
+              if ($news_posts->have_posts()):
+                while ($news_posts->have_posts()): $news_posts->the_post();
+              ?>
+                  <div>
+                    <a class="news-link" href="<?php the_permalink(); ?>">
+                      <div class="news-body">
+                        <time class="release"><?php the_time('Y.m.d'); ?></time>
+                        <p class="news-category">
+                        <?php 
+                          $categories = get_the_category();
+                          if ( ! empty( $categories ) ) {
+                            foreach ( $categories as $category ) {
+                              echo esc_html( $category->name ) . ' '; // 複数カテゴリをスペース区切りで表示
+                            }
+                          }
+                        ?>
+                        </p>
+                        <p class="title"><?php the_title(); ?></p>
+                      </div>
+                    </a>
+                  </div>
+              <?php
+                endwhile;
+                wp_reset_postdata();
+              endif;
+              ?>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="pager">
+      <ul class="pagerList">
+        <?php
+        // ページナビゲーションの表示
+        page_navi();
+        ?>
+      </ul>
+    </div>
+  </div>
+
+  <div class="section-buttons">
+    <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(get_term_link($term_obj)); ?>';">
+      <?php echo $term_obj->name; ?>一覧を見る
+    </button>
+  </div>
+</section>の
+
+この部分について合流させる
+<div>
+                    <a class="news-link" href="<?php the_permalink(); ?>">
+                      <div class="news-body">
+                        <time class="release"><?php the_time('Y.m.d'); ?></time>
+                        <p class="news-category">
+                        <?php 
+                          $categories = get_the_category();
+                          if ( ! empty( $categories ) ) {
+                            foreach ( $categories as $category ) {
+                              echo esc_html( $category->name ) . ' '; // 複数カテゴリをスペース区切りで表示
+                            }
+                          }
+                        ?>
+                        </p>
+                        <p class="title"><?php the_title(); ?></p>
+                      </div>
+                    </a>
+                  </div>
+
+

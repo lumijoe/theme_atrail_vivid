@@ -3044,13 +3044,37 @@ form
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex;
+  display: grid;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
   -webkit-flex-direction: row;
   -ms-flex-direction: row;
   flex-direction: row;
   border-bottom: 1px solid #d0d0d0;
+  grid-template-columns: 0.3fr 0.3fr 1fr;
+}
+.news-category {
+  font-size:clamp(10px, 2vw,12px);
+  width: 100%;
+}
+.news-category.info {
+  background-color: #fff;
+  border: 1px solid #232323; /* infoカテゴリ */
+}
+
+.news-category.work {
+  background-color: #fff;
+  border: 1px solid #232323; /* workカテゴリ */
+}
+
+.news-category.press {
+  background-color: #fff;
+  border: 1px solid #232323; /* pressカテゴリ */
+}
+
+.news-category.event {
+  background-color: #fff;
+  border: 1px solid #232323; /* eventカテゴリ */
 }
 
 #pg-news .newsLists .news-body .release {
@@ -3060,8 +3084,9 @@ form
 }
 
 #pg-news .newsLists .news-body .title {
-  width: 85%;
+  width: 100%;
   font-size: 1.4rem;
+  margin-left: 10px;
 }
 
 #pg-news .newsLists .news-body .capton {

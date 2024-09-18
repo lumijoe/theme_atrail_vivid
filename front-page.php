@@ -259,15 +259,21 @@
                     <a class="news-link" href="<?php the_permalink(); ?>">
                       <div class="news-body">
                         <time class="release"><?php the_time('Y.m.d'); ?></time>
-                        <p class="news-category" style="font-size:clamp(10px, 2vw, 12px); width:100%; background-size: #c5c5c5;">
-                        <?php 
+                        <p class="news-category <?php 
                           $categories = get_the_category();
                           if ( ! empty( $categories ) ) {
                             foreach ( $categories as $category ) {
-                              echo esc_html( $category->name ) . ' '; // 複数カテゴリをスペース区切りで表示
+                              echo esc_html( $category->slug ) . ' '; // 全てのカテゴリスラッグをクラスに追加
                             }
                           }
-                        ?>
+                        ?>">
+                          <?php 
+                            if ( ! empty( $categories ) ) {
+                              foreach ( $categories as $category ) {
+                                echo esc_html( $category->name ) . ' '; // カテゴリ名をスペース区切りで表示
+                              }
+                            }
+                          ?>
                         </p>
                         <p class="title"><?php the_title(); ?></p>
                       </div>
