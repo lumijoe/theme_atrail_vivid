@@ -383,7 +383,6 @@ news
 .news-body {
   height: auto;
   width: 85px !important;
-  color: #9e9e9e;
 }
 .maxw600 {
   max-width: 600px;
@@ -3035,7 +3034,6 @@ form
 #pg-news .main-container .main-wrapper {
   margin: 0 auto;
   padding: 4% 0;
-  /* padding: 4% 0 120px; */
   max-width: 960px;
 }
 
@@ -3052,43 +3050,43 @@ form
   padding: 16px 0;
   width: 85px;
   display: inline-block;
+  text-align: center;
 }
 .news-category {
   font-size: clamp(10px, 2vw, 12px);
-  width: 100px;
+  width: 100px !important;
   display: inline-block;
+  text-align: center !important;
+  margin: 0px 33px 0px 14px !important;
 }
 .news-category.info {
-  background-color: #fff;
-  border: 1px solid #232323; /* infoカテゴリ */
+  background-color: #5194d3;
+  color: #fff;
 }
 
 .news-category.work {
-  background-color: #fff;
-  border: 1px solid #232323; /* workカテゴリ */
+  background-color: #39a39a;
+  color: #fff;
 }
 
 .news-category.press {
-  background-color: #fff;
-  border: 1px solid #232323; /* pressカテゴリ */
+  background-color: #dd6076;
+  color: #fff;
 }
 
 .news-category.event {
-  background-color: #fff;
-  border: 1px solid #232323; /* eventカテゴリ */
+  background-color: #f29d6e;
+  color: #fff;
 }
 .news-list {
   text-align: start !important;
 }
-
 #pg-news .newsLists .news-body .release {
-  /* width: 15%; */
   font-size: 1.4rem;
-  color: #949494;
+  color: #949494 !important;
 }
 
 #pg-news .newsLists .news-body .title {
-  /* width: 100%; */
   font-size: 1.4rem;
   margin-left: 10px;
   display: inline-block !important;
@@ -4454,6 +4452,8 @@ tel {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
+    flex-direction: column !important;
+    align-content: center;
     -webkit-box-pack: justify;
     -webkit-justify-content: space-between;
     -ms-flex-pack: justify;
@@ -4474,11 +4474,12 @@ tel {
   }
 
   #shop .shops-item .shop-body {
-    position: absolute;
-    right: 4.5%;
-    bottom: -56px;
+    position: initial !important;
+    /* right: 4.5%;
+    bottom: -56px; */
     padding: 8px 13px;
-    width: 91%;
+    /* width: 91%; */
+    width: 100%;
     text-align: left;
     background-color: #fff;
     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.07);
@@ -5571,6 +5572,7 @@ input[type="submit"]::after {
   padding-bottom: 4%;
   border-bottom: 1px solid #d0d0d0;
   height: auto;
+  color: #9e9e9e;
 }
 
 .single-daily_contribution .news .news-body p {

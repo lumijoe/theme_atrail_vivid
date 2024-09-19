@@ -16,7 +16,7 @@
 
 
 <!-- ------------------------------
-//////////// 事業案内 shop
+//////////// 事業案内 service
 ------------------------------- -->
 <section class="section-contents" id="shop">
   <div class="wrapper">
@@ -27,13 +27,13 @@
     ----------------------------->
     <?php
     // 固定ページを表示させる（引数：ページのスラッグ）
-    $service_obj = get_page_by_path('service');
+    $shop_obj = get_page_by_path('service');
     // 投稿記事
-    $post = $service_obj;
+    $post = $shop_obj;
     // 固定ページの投稿記事を使用する宣言（引数：関数定義）
     setup_postdata($post);
     // タイトルを取得
-    $service_title = get_the_title();
+    $shop_title = get_the_title();
     ?>
     <!----------------------------
     // 取得したphpなどのhtml予約
@@ -56,9 +56,9 @@
       ----------------------------->
       <?php
       // 記事が続く限り、でも４つまで
-      $service_pages = get_child_pages(4, $service_obj->ID);
-      if ($service_pages->have_posts()) :
-        while ($service_pages->have_posts()) : $service_pages->the_post();
+      $shop_pages = get_child_pages(4, $shop_obj->ID);
+      if ($shop_pages->have_posts()) :
+        while ($shop_pages->have_posts()) : $shop_pages->the_post();
       ?>
           <li class="shops-item">
             <a class="shop-link" href="<?php the_permalink(); ?>">
@@ -67,7 +67,8 @@
                 <!-- ❶タイトル -->
                 <p class="name"><?php the_title(); ?></p>
                 <!-- 引数：❷ACFのフィールド名 -->
-                <p class="location"><?php the_field('location'); ?></p>
+                <!-- <p class="location"><?php the_field('location'); ?></p> -->
+                <p><?php the_field('location'); ?></p>
                 <div class="buttonBox">
                   <button type="button" class="seeDetail">詳しくは→</button>
                 </div>
@@ -83,7 +84,7 @@
     </ul> <!--ulここまで-->
     <div class="section-buttons">
       <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(home_url('service')); ?>';">
-        <?php echo $service_title; ?>一覧を見る
+        <?php echo $shop_title; ?>一覧を見る
       </button>
     </div>
   </div>
@@ -94,7 +95,7 @@
 
 <!----------------------------------
         gallery
-        ----------------------------------->
+----------------------------------->
 <section class="l-gallery-section">
   <ul class="l-section-inner l-section-inner-plf--20px l-gallery-section-inner">
     <li class="l-gallery">
@@ -211,6 +212,7 @@
       ?>
     </div>
 
+
     <!-- 施工事例 -->
     <div class="section-buttons">
       <button type="button" class="button button-ghost" onclick="javascript:location.href = '<?php echo esc_url(home_url('work')); ?>';">
@@ -222,11 +224,12 @@
 <!-- cta -->
 <section class="l-cta">
   <button class="p-cta-btn">
-    <img src="https://atrail.co.jp/wp-content/uploads/images/svg/icon-mail-circle.svg" alt="" srcset="" class="img-mail">
-    <a href="https://atrail.co.jp/contact/">お問い合わせ</a>
+    <div style="display:flex; flex-direction: row; justify-content:center; align-items:center; gap: 5px;">
+      <img src="https://atrail.co.jp/wp-content/uploads/images/svg/icon-mail-circle.svg" alt="" srcset="" class="img-mail">
+      <a href="https://atrail.co.jp/contact/" style="font-size: 16px;">お問い合わせ</a>
   </button>
+  </div>
 </section>
-
 
 
 <!-- お知らせ -->
@@ -257,7 +260,7 @@
               ?>
                   <li class="news-list">
                     <a class="news-link" href="<?php the_permalink(); ?>">
-                      <span class="news-body release"><?php the_time('Y.m.d'); ?></span>
+                      <span class="news-body release" style="color: #949494;"><?php the_time('Y.m.d'); ?></span>
                       <span class="news-category <?php
                                                   $categories = get_the_category();
                                                   if (! empty($categories)) {
