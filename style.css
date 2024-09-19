@@ -2772,7 +2772,7 @@ form
     -webkit-transform: translateX(0);
     -ms-transform: translateX(0);
     transform: translateX(0);
-    overflow: auto;
+    overflow: hidden;
   }
 
   #header.fixed {
@@ -3660,7 +3660,7 @@ form
  * -------------------------------- */
 @media screen and (max-width: 769px) {
   .page-contents .page-container {
-    padding: 6.7% 0;
+    /* padding: 6.7% 0; */
   }
 
   #pg-privacy .basic-box {
@@ -4075,7 +4075,7 @@ tel {
 @media screen and (max-width: 769px) {
   .section-contents {
     padding: 40px 4% 60px;
-    margin-top: 40px;
+    /* margin-top: 40px; */
   }
   .sp-none {
     display: none !important;
@@ -5526,9 +5526,8 @@ input[type="submit"]::after {
     color: #1381d6;
   }
 
-  /* ぱんくず */
   .bread_crumb {
-    padding: 0;
+    padding: 3px;
   }
 }
 
