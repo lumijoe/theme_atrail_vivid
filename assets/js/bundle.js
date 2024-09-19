@@ -70,18 +70,6 @@ function getGlobalMenuPath() {
   return path;
 }
 
-function getBaseUrl() {
-  const local_path = '/pacificmall'
-  const base_url = window.location.origin;
-  if (isLocalhost()) return base_url + local_path;
-  return base_url;
-}
-
-function isLocalhost() {
-  const hostName = document.location.hostname;
-  return hostName === "localhost" || hostName === "127.0.0.1";
-}
-
 
 /**
  * スクロールに応じたヘッダー固定切り替え
